@@ -18,12 +18,27 @@ import javax.swing.ButtonGroup;
 
 import java.awt.GridBagLayout;
 import javax.swing.JToggleButton;
+import java.awt.event.ActionListener;
+import java.util.Iterator;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
-public class Ejercicio9 extends JFrame {
+public class Ejercicio9 extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	private int contador = 0;
-	private Color colorUno, colorDos;
+	private Color colorUno = Color.RED, colorDos = Color.BLACK;
+	private JToggleButton botonUno,botonDos,botonTres,botonCuatro, botonCinco,botonSeis,botonSiete,botonOcho, botonNueve,botonDiez,botonOnce,botonDoce;
+	private JToggleButton botonTrece,botonCatorce,botonQuince,botonDiceiseis;
+	private JToggleButton[][] tableroBotones = new JToggleButton[4][4];
+	// Matriz con colores para el tablero
+	Color[][] colores = { { Color.RED, Color.RED, Color.GREEN, Color.GREEN },
+							{ Color.BLUE, Color.BLUE, Color.BLACK, Color.BLACK },
+							{ Color.PINK, Color.PINK, Color.ORANGE, Color.ORANGE },
+							{ Color.MAGENTA, Color.MAGENTA, Color.CYAN, Color.CYAN } };
 
 	/**
 	 * Launch the application.
@@ -52,106 +67,139 @@ public class Ejercicio9 extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JToggleButton botonUno = new JToggleButton("");
-		botonUno.setSelected(true);
+		// Botones del tablero
+		botonUno = new JToggleButton("");
 		botonUno.setForeground(Color.RED);
 		botonUno.setBounds(0, 0, 100, 100);
 		contentPane.add(botonUno);
 		
-		JToggleButton botonDos = new JToggleButton("");
+		botonDos = new JToggleButton("");
 		botonDos.setForeground(Color.ORANGE);
 		botonDos.setBounds(110, 0, 100, 100);
 		contentPane.add(botonDos);
 		
-		JToggleButton botonTres = new JToggleButton("");
+		botonTres = new JToggleButton("");
 		botonTres.setBounds(220, 0, 100, 100);
 		contentPane.add(botonTres);
 		
-		JToggleButton botonCuatro = new JToggleButton("");
+		botonCuatro = new JToggleButton("");
 		botonCuatro.setBounds(330, 0, 100, 100);
 		contentPane.add(botonCuatro);
 		
-		JToggleButton botonCinco = new JToggleButton("");
+		botonCinco = new JToggleButton("");
 		botonCinco.setBounds(0, 111, 100, 100);
 		contentPane.add(botonCinco);
 		
-		JToggleButton botonSeis = new JToggleButton("");
+		botonSeis = new JToggleButton("");
 		botonSeis.setBounds(110, 111, 100, 100);
 		contentPane.add(botonSeis);
 		
-		JToggleButton botonSiete = new JToggleButton("");
+		botonSiete = new JToggleButton("");
 		botonSiete.setBounds(220, 111, 100, 100);
 		contentPane.add(botonSiete);
 		
-		JToggleButton botonOcho = new JToggleButton("");
+		botonOcho = new JToggleButton("");
 		botonOcho.setBounds(330, 111, 100, 100);
 		contentPane.add(botonOcho);
 		
-		JToggleButton botonNueve = new JToggleButton("");
+		botonNueve = new JToggleButton("");
 		botonNueve.setBounds(0, 222, 100, 100);
 		contentPane.add(botonNueve);
 		
-		JToggleButton botonDiez = new JToggleButton("");
+		botonDiez = new JToggleButton("");
 		botonDiez.setBounds(110, 222, 100, 100);
 		contentPane.add(botonDiez);
 		
-		JToggleButton botonOnce = new JToggleButton("");
+		botonOnce = new JToggleButton("");
 		botonOnce.setBounds(220, 222, 100, 100);
 		contentPane.add(botonOnce);
 		
-		JToggleButton botonDoce = new JToggleButton("");
+		botonDoce = new JToggleButton("");
 		botonDoce.setBounds(330, 222, 100, 100);
 		contentPane.add(botonDoce);
 		
-		JToggleButton botonTrece = new JToggleButton("");
+		botonTrece = new JToggleButton("");
 		botonTrece.setBounds(0, 333, 100, 100);
 		contentPane.add(botonTrece);
 		
-		JToggleButton botonCatorce = new JToggleButton("");
+		botonCatorce = new JToggleButton("");
 		botonCatorce.setBounds(110, 333, 100, 100);
 		contentPane.add(botonCatorce);
 		
-		JToggleButton botonQuince = new JToggleButton("");
+		botonQuince = new JToggleButton("");
 		botonQuince.setBounds(220, 333, 100, 100);
 		contentPane.add(botonQuince);
 		
-		JToggleButton botonDiceiseis = new JToggleButton("");
+		botonDiceiseis = new JToggleButton("");
 		botonDiceiseis.setBounds(330, 333, 100, 100);
 		contentPane.add(botonDiceiseis);
 		
-		JToggleButton[][] tableroBotones = {{botonUno,botonDos,botonTres,botonCuatro},
+		// Matriz con los botones que forman el tablero
+		JToggleButton[][] tableroBotonesAux = {{botonUno,botonDos,botonTres,botonCuatro},
 											{botonCinco,botonSeis,botonSiete,botonOcho},
 											{botonNueve,botonDiez,botonOnce,botonDoce},
 											{botonTrece,botonCatorce,botonQuince,botonDiceiseis}};
 		
-		Color[][] colores = {{Color.RED, Color.RED, Color.GREEN, Color.GREEN},
-							{Color.BLUE, Color.BLUE, Color.BLACK, Color.BLACK},
-							{Color.PINK, Color.PINK, Color.ORANGE, Color.ORANGE},
-							{Color.MAGENTA, Color.MAGENTA, Color.CYAN, Color.CYAN}};
-					
+		for (int fil = 0; fil < tableroBotonesAux.length; fil++) {
+			for (int col = 0; col < tableroBotonesAux[fil].length; col++) {
+				tableroBotones[fil][col] = tableroBotonesAux[fil][col];
+			}
+		}
+		
+		// Asignamos los colores al tablero
 		for (int fil = 0; fil < tableroBotones.length; fil++) {
 			for (int col = 0; col < tableroBotones[fil].length; col++) {
 				tableroBotones[fil][col].setBackground(colores[fil][col]);
 				tableroBotones[fil][col].setSelected(true);
+				tableroBotones[fil][col].addActionListener(this);
 			}
-			System.out.println();
 		}
-		
-		for (int fil = 0; fil < tableroBotones.length; fil++) {
-			for (int col = 0; col < tableroBotones[fil].length; col++) {
-				if(contador == 0) {
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		int contadorAux = 0, filUno = 0, colUno = 0, filDos = 0, colDos = 0;
+		contador++;
+		System.out.println(contador);
+		if(contador == 2) {
+			for (int fil = 0; fil < tableroBotones.length; fil++) {
+				for (int col = 0; col < tableroBotones[fil].length; col++) {
+					tableroBotones[fil][col].setEnabled(false);
 					if(!tableroBotones[fil][col].isSelected()) {
-						colorUno = tableroBotones[fil][col].getBackground();
-						contador++;
-					}
-				} else if(contador == 1) {
-					if(!tableroBotones[fil][col].isSelected()) {
-						colorDos = tableroBotones[fil][col].getBackground();
-						contador++;
+						if(contadorAux == 0) {
+							colorUno = tableroBotones[fil][col].getBackground();
+							filUno = fil;
+							colUno = col;
+							contadorAux++;
+						} else if(contadorAux == 1){
+							colorDos = tableroBotones[fil][col].getBackground();
+							filDos = fil;
+							colDos = col;
+							contadorAux = 0;
+						}
 					}
 				}
 			}
+			if(colorUno == colorDos) {
+				tableroBotones[filUno][colUno].setVisible(false);
+				tableroBotones[filUno][colUno].invalidate();
+				tableroBotones[filDos][colDos].setVisible(false);
+				tableroBotones[filDos][colDos].invalidate();
+				for (int fil = 0; fil < tableroBotones.length; fil++) {
+					for (int col = 0; col < tableroBotones[fil].length; col++) {
+						tableroBotones[fil][col].setEnabled(true);
+						tableroBotones[fil][col].setSelected(true);
+					}
+				}
+			} else if(colorUno != colorDos) {
+				for (int fil = 0; fil < tableroBotones.length; fil++) {
+					for (int col = 0; col < tableroBotones[fil].length; col++) {
+						tableroBotones[fil][col].setEnabled(true);
+						tableroBotones[fil][col].setSelected(true);
+					}
+				}
+			}
+			contador = 0;
 		}
-		
 	}
 }

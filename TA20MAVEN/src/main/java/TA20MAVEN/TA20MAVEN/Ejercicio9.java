@@ -139,13 +139,19 @@ public class Ejercicio9 extends JFrame {
 		
 		for (int fil = 0; fil < tableroBotones.length; fil++) {
 			for (int col = 0; col < tableroBotones[fil].length; col++) {
-				if(!tableroBotones[fil][col].isSelected()) {
-					colorUno = tableroBotones[fil][col].getBackground();
-					contador++;
+				if(contador == 0) {
+					if(!tableroBotones[fil][col].isSelected()) {
+						colorUno = tableroBotones[fil][col].getBackground();
+						contador++;
+					}
+				} else if(contador == 1) {
+					if(!tableroBotones[fil][col].isSelected()) {
+						colorDos = tableroBotones[fil][col].getBackground();
+						contador++;
+					}
 				}
 			}
 		}
-		
 		
 	}
 }

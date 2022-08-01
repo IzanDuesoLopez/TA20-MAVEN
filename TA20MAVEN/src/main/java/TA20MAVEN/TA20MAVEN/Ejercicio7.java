@@ -23,7 +23,7 @@ public class Ejercicio7 extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) { // Método principal en el que crearemos la instancia del frame
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -40,8 +40,8 @@ public class Ejercicio7 extends JFrame {
 	 * Create the frame.
 	 */
 	public Ejercicio7() {
-		String resultado;
-		double resultadoDecimal;
+		String resultado; // String con el resultado
+		double resultadoDecimal; // Double con el resultado decimal
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 107);
@@ -90,7 +90,7 @@ public class Ejercicio7 extends JFrame {
 		contentPane.add(eurosAPesetas);
 		
 		JButton pesetasAEuros = new JButton("Pesetas a Euros");
-		pesetasAEuros.setVisible(false);
+		pesetasAEuros.setVisible(false); // Inicializamos el botón en que no sea visible, para que únicamente podamos utilizar el de euros a ptas
 		pesetasAEuros.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { // Cuando clicamos al botón realizamos la transformación de ptas a euros
 				try { // Realizaremos el mismo proceso que de euros a Pesetas
@@ -123,8 +123,5 @@ public class Ejercicio7 extends JFrame {
 		cambiarDivisa.setFont(new Font("Tahoma", Font.BOLD, 11));
 		cambiarDivisa.setBounds(258, 37, 89, 23);
 		contentPane.add(cambiarDivisa);
-		
-		
 	}
-
 }

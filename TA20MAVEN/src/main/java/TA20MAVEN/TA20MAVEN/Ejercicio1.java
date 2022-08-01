@@ -7,9 +7,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class Ejercicio1 extends JFrame {
 
@@ -43,21 +45,24 @@ public class Ejercicio1 extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Resolución de pantalla: ");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(136, 69, 238, 14);
-		contentPane.add(lblNewLabel);
+		JLabel label = new JLabel("Escribe el tamaño del que quieres la etiqueta:");
+		label.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		label.setBounds(10, 25, 416, 32);
+		contentPane.add(label);
 		
 		textField = new JTextField();
-		textField.setBounds(167, 94, 86, 20);
+		textField.setBounds(20, 68, 96, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Cambiar resolución");
-		btnNewButton.setBounds(136, 131, 148, 23);
+		JButton btnNewButton = new JButton("Aplicar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) { //Cuando se clica al botón
+				int valor1 = Integer.parseInt(textField.getText()); //Guardamos el valor del textField
+				label.setFont(new Font("Tahoma", Font.PLAIN, valor1)); //Ponemos ese valor como tamaño de fuente
+			}
+		});
+		btnNewButton.setBounds(139, 67, 89, 23);
 		contentPane.add(btnNewButton);
-		
-		
-		
 	}
 }

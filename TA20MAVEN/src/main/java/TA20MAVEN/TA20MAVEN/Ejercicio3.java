@@ -58,9 +58,9 @@ public class Ejercicio3 extends JFrame {
 		JButton btnNewButton = new JButton("Botón 1");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mouseClicked(MouseEvent e) { //Se guarda en una variable cada vez que se hace click 
 				boton1++;
-				lblNewLabel.setText("Botón 1: " + boton1 + " veces");
+				lblNewLabel.setText("Botón 1: " + boton1 + " veces"); //Muestra en el label el total de veces que se ha clicado
 			}
 		});
 		btnNewButton.setBounds(73, 113, 85, 21);
@@ -69,9 +69,9 @@ public class Ejercicio3 extends JFrame {
 		JButton btnNewButton_1 = new JButton("Botón 2");
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mouseClicked(MouseEvent e) {//Se guarda en una variable cada vez que se hace click 
 				boton2++;
-				lblNewLabel_1.setText("Botón 2: " + boton2 + " veces");
+				lblNewLabel_1.setText("Botón 2: " + boton2 + " veces"); //Muestra en el label el total de veces que se ha clicado
 			}
 		});
 		btnNewButton_1.setBounds(273, 113, 85, 21);

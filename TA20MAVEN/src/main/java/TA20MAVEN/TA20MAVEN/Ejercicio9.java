@@ -161,7 +161,7 @@ public class Ejercicio9 extends JFrame implements ActionListener{
 		int contadorAux = 0, filUno = 0, colUno = 0, filDos = 0, colDos = 0;
 		contador++;
 		System.out.println(contador);
-		if(contador == 2) {
+		if(contador == 2) { // Si hay 2 cuadros pulsados
 			for (int fil = 0; fil < tableroBotones.length; fil++) {
 				for (int col = 0; col < tableroBotones[fil].length; col++) {
 					tableroBotones[fil][col].setEnabled(false);
@@ -180,7 +180,7 @@ public class Ejercicio9 extends JFrame implements ActionListener{
 					}
 				}
 			}
-			if(colorUno == colorDos) {
+			if(colorUno == colorDos) { //Si los 2 colores son visibles se vuelven invisibles y se inhabilitan
 				tableroBotones[filUno][colUno].setVisible(false);
 				tableroBotones[filUno][colUno].invalidate();
 				tableroBotones[filDos][colDos].setVisible(false);
@@ -191,7 +191,7 @@ public class Ejercicio9 extends JFrame implements ActionListener{
 						tableroBotones[fil][col].setSelected(true);
 					}
 				}
-			} else if(colorUno != colorDos) {
+			} else if(colorUno != colorDos) { //Si los 2 colores son diferentes se vuelven visibles de nuevo
 				for (int fil = 0; fil < tableroBotones.length; fil++) {
 					for (int col = 0; col < tableroBotones[fil].length; col++) {
 						tableroBotones[fil][col].setEnabled(true);

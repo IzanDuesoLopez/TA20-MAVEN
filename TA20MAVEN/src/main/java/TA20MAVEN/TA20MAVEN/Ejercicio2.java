@@ -53,7 +53,7 @@ public class Ejercicio2 extends JFrame {
 		JButton btnNewButton = new JButton("Botón 1");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { //Si clicas este botón saldrá en el label el siguiente mensaje
 				lblNewLabel.setText("Has pulsado: Botón 1");
 			}
 		});
@@ -63,7 +63,7 @@ public class Ejercicio2 extends JFrame {
 		JButton btnNewButton_1 = new JButton("Botón 2");
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { //Si clicas este botón saldrá en el label el siguiente mensaje
 				lblNewLabel.setText("Has pulsado: Botón 2");
 			}
 		});

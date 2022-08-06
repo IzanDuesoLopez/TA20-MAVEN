@@ -75,16 +75,16 @@ public class Ejercicio6 extends JFrame {
 		JButton btnNewButton = new JButton("Calcular IMC");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				double valor1 = Double.parseDouble(textField.getText());
+			public void mouseClicked(MouseEvent e) { //Cuando pulsas en el botón
+				double valor1 = Double.parseDouble(textField.getText());  //Se guarda en valor1 lo que había en textField
 				System.out.println(valor1);
-				double valor2 = Double.parseDouble(textField_1.getText());
+				double valor2 = Double.parseDouble(textField_1.getText()); //Se guarda en valor2 lo que había en textField
 				System.out.println(valor2);
 				double valor3 = valor2 / Math.pow(valor1, 2);
 				valor3 = Math.round(valor3 * 100) / 100d;
 				String valor_final = "" + valor3;
 				System.out.println(valor3);
-				textField_2.setText(valor_final);
+				textField_2.setText(valor_final); //Se muestra en el textField el valor final de la operación
 			}
 		});
 		btnNewButton.setBounds(95, 108, 116, 21);

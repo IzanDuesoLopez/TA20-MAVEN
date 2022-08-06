@@ -48,23 +48,23 @@ public class Ejercicio5 extends JFrame{
 		JTextArea textArea = new JTextArea();
 		textArea.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mouseClicked(MouseEvent e) { //Si clicas sobre el textArea se muestra el siguiente texto
 				textArea.setText(textArea.getText() + "Has clicado sobre el textArea.\n");
 			}
 			@Override
-			public void mouseEntered(MouseEvent e) {
+			public void mouseEntered(MouseEvent e) { //Si entras con el ratón en el textArea se muestra el siguiente texto
 				textArea.setText(textArea.getText() + "Has entrado en el textArea.\n");
 			}
 			@Override
-			public void mouseExited(MouseEvent e) {
+			public void mouseExited(MouseEvent e) {//Si sales con el ratón en el textArea se muestra el siguiente texto
 				textArea.setText(textArea.getText() + "Has salido del textArea.\n");
 			}
 			@Override
-			public void mousePressed(MouseEvent e) {
+			public void mousePressed(MouseEvent e) { //Si presionas con el ratón en el textArea se muestra el siguiente texto
 				textArea.setText(textArea.getText() + "Has presionado sobre el textArea.\n");
 			}
 			@Override
-			public void mouseReleased(MouseEvent e) {
+			public void mouseReleased(MouseEvent e) { //Si dejas de clicar con el ratón en el textArea se muestra el siguiente texto
 				textArea.setText(textArea.getText() + "Has dejado de clicar sobre el textArea.\n");
 			}
 		});
@@ -73,7 +73,7 @@ public class Ejercicio5 extends JFrame{
 		
 		JButton btnNewButton = new JButton("Limpiar");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { //Cuando pulsas el botón se borra todo el texto del textArea
 				textArea.setText("");
 			}
 		});

@@ -28,6 +28,7 @@ import java.awt.event.WindowListener;
 
 public class Ejercicio9 extends JFrame implements ActionListener{
 
+	// Variables de clase
 	private JPanel contentPane;
 	private int contador = 0;
 	private Color colorUno = Color.RED, colorDos = Color.BLACK;
@@ -41,7 +42,7 @@ public class Ejercicio9 extends JFrame implements ActionListener{
 							{ Color.MAGENTA, Color.MAGENTA, Color.CYAN, Color.CYAN } };
 
 	/**
-	 * Launch the application.
+	 * Método principal
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -57,7 +58,7 @@ public class Ejercicio9 extends JFrame implements ActionListener{
 	}
 
 	/**
-	 * Create the frame.
+	 * Creamos el frame principal de la aplicación
 	 */
 	public Ejercicio9() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -157,6 +158,9 @@ public class Ejercicio9 extends JFrame implements ActionListener{
 	}
 
 	@Override
+	/**
+	 *  Método para accionar la funcionalidad cada vez que presionamos un elemento del juego Memory
+	 */
 	public void actionPerformed(ActionEvent e) {
 		int contadorAux = 0, filUno = 0, colUno = 0, filDos = 0, colDos = 0;
 		contador++;
